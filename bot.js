@@ -65,3 +65,26 @@ function say(msg){
         msg.delete();
     }
 }
+client.on('message', game);
+function game(msg){
+    ch ='ahla'
+    var randomColor = Math.floor(Math.random()*16777215).toString(16);
+    if(msg.content.startsWith('!game')){
+   var  num = Math.floor(Math.random()*100)
+  var  userinput=parseInt((msg.content.slice(6,(msg.content.length))))
+  
+if(Math.abs(num-userinput < 10)){
+    ch = 'you won, bot\'s number was '+num+ ' and the difference is  '+ Math.abs(num-userinput)+'';
+    }
+    if(Math.abs(num-userinput > 10)){ 
+       ch = 'you lost, bot\'s number was ' +num+ ' and the difference is  '+ Math.abs(num-userinput)+'';
+    }
+    const embed = new Discord.MessageEmbed()
+    .setColor(randomColor)
+    .setTitle('Number games')
+    .addField(ch)
+    .setAuthor('saàya')
+    msg.reply(embed)
+    }
+ 
+}
