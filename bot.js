@@ -54,3 +54,8 @@ const Embedd = new Discord.MessageEmbed()
 
 }
     } 
+client.on('message',test)
+function test(msg){
+    if (!msg.author.bot)
+    msg.reply('test')
+}
