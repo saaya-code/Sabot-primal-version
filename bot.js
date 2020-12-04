@@ -54,3 +54,14 @@ const Embedd = new Discord.MessageEmbed()
 
 }
     } 
+
+
+
+client.on('message',say)
+function say(msg){
+    if (msg.content.startsWith('!say')&& !msg.author.bot){
+        said = msg.content.slice(5,msg.content.length)
+        msg.channel.send(said)
+        msg.delete();
+    }
+}
