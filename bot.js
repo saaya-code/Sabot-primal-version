@@ -96,13 +96,13 @@ function joke(msg){
         let getJoke = async () => {
             let response = await axios.get('https://official-joke-api.appspot.com/random_joke')
           let joke = response.data
-          let JokeValue = await getJoke();
+          let JokeValue = await getJoke()
           const embed = new Discord.MessageEmbed()
           .setColor(randomColor)
           .setTitle(JokeValue.setup)
           .addField(JokeValue.punchline)
-          .setAuthor('@saàya#1010');
-          msg.reply(embed)
+          .setAuthor('@saàya#1010')
+          msg.reply(embed);
 
         }
 
