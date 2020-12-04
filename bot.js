@@ -56,4 +56,4 @@ const Embedd = new Discord.MessageEmbed()
              msg.reply(Embedd)
 
 }
-    }
+    } 
