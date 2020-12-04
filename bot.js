@@ -44,9 +44,6 @@ else{
 }
 array = str.split(' ');
 random = Math.floor(Math.random()*array.length)
-
-console.log(option)
-console.log(array[random])
 var randomColor = Math.floor(Math.random()*16777215).toString(16);
 
 const Embedd = new Discord.MessageEmbed()
