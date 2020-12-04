@@ -82,8 +82,8 @@ if(Math.abs(num-userinput < 10)){
     const embed = new Discord.MessageEmbed()
     .setColor(randomColor)
     .setTitle('Number games')
-    .addField('Result : ',ch)
-    .setAuthor('saàya')
+    .addField(ch)
+    .setAuthor('Game by saàya')
     msg.reply(embed)
     }
  
