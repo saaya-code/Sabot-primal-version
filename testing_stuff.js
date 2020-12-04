@@ -57,14 +57,14 @@ if(Math.abs(num-userinput < 10)){
     if(Math.abs(num-userinput > 10)){ 
        ch = 'you lost, bot\'s number was ' +num+ ' and the difference is  '+ Math.abs(num-userinput)+'';
     }
-    /*const embed = new Discord.MessageEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(randomColor)
     .setTitle('Number games')
     .addField(ch)
     .setAuthor('saàya')
     msg.reply(embed)
     }
- */
+ 
 }}
 
 
