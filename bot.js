@@ -89,7 +89,7 @@ if(Math.abs(num-userinput < 10)){
     }
  
 }
-client.on('message',joke)
+/*client.on('message',joke)
 function joke(msg){
     if(msg.content=='!joke'&& !msg.author.bot){
         var randomColor = Math.floor(Math.random()*16777215).toString(16);
@@ -108,3 +108,4 @@ function joke(msg){
 
     }
 }
+*/
