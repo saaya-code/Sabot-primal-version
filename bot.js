@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 require('dotenv').config();
-client.login(process.env.TOKEN);
+client.login('NzU5Nzk1MzIwMjU0NDk2NzY4.X3CsiA.3KwbhBe2nbTbPbHrXRxis3a1u4g');
 client.on('ready', Readybot);
 function Readybot(){
     console.log('I\'m ready!!');
