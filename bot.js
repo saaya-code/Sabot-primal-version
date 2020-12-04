@@ -100,7 +100,7 @@ function joke(msg){
           const embed = new Discord.MessageEmbed()
           .setColor(randomColor)
           .setTitle(JokeValue.setup)
-          .addField(JokeValue.punchline,' ')
+          .addField(JokeValue.punchline)
           .setAuthor('@saàya#1010');
           msg.reply(embed)
 
