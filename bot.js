@@ -92,15 +92,3 @@ if(Math.abs(num-userinput < 10)){
     }
  
 }
-rpc.on("ready",def)
-function def(){
-    rpc.setActivity({
-            details:"Looking after the servers.",
-            state:"Saàya's property",
-            startTimestamp: new Date()
-        }) ;   
-    }
-rpc.login({
-    clientId: process.env.CLIENT
-    
-});
