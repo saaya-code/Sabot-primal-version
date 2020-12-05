@@ -1,5 +1,9 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const RPC=require("discord-rpc");
+const rpc = new RPC.client({
+    transport: "ipc"
+});
 require('dotenv').config();
 client.login(process.env.TOKEN);
 client.on('ready', Readybot);
@@ -88,3 +92,15 @@ if(Math.abs(num-userinput < 10)){
     }
  
 }
+rpc.on("ready",def)
+function def(){
+    rpc.setActivity({
+            details:"Looking after the servers.",
+            state:"Saàya's property",
+            startTimestamp: new Date()
+        }) ;   
+    }
+rpc.login({
+    clientId: process.env.CLIENT
+    
+});
