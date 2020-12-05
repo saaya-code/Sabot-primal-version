@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 require('dotenv').config();
-const axios = require('axios');
 client.login(process.env.TOKEN);
 client.on('ready', Readybot);
 function Readybot(){
@@ -89,23 +88,3 @@ if(Math.abs(num-userinput < 10)){
     }
  
 }
-/*client.on('message',joke)
-function joke(msg){
-    if(msg.content=='!joke'&& !msg.author.bot){
-        var randomColor = Math.floor(Math.random()*16777215).toString(16);
-        let getJoke = async () => {
-            let response = await axios.get('https://official-joke-api.appspot.com/random_joke')
-          let joke = response.data
-          let JokeValue = await getJoke()
-          const embed = new Discord.MessageEmbed()
-          .setColor(randomColor)
-          .setTitle(JokeValue.setup)
-          .addField(JokeValue.punchline)
-          .setAuthor('@saàya#1010')
-          msg.reply(embed);
-
-        }
-
-    }
-}
-*/
