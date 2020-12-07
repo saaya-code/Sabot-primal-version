@@ -25,14 +25,9 @@ function info(msg){
     //reciever
     client.on('message',logprv)
     function logprv(msg){
-        if (msg.guild === null){
-            let saaya = "398147766687236107"
-            let user = msg.author.id;
-            console.log('private message from : '+ msg.author.username+' content :  '+msg.content)
-            saaya.send(msg.content)
-            user.send('message content sent to saàya')
-            
-
+        if (msg.guild === null && !msg.author.bot){
+           client.users.cache.get("398147766687236107").send("**User : "+msg.author.tag+" sent : "+msg.content+"**");
+           client.users.cache.get(msg.author.id).send("your message has been sent to saàya!");
         }
     }
 
@@ -95,3 +90,16 @@ if(Math.abs(num-userinput < 10)){
  
 }
 
+client.on('message',appeal)
+function appeal(msg){
+    if (msg.content.startsWith("!vote")&& !msg.author.bot){
+        said = msg.content.slice(6,msg.content.length)
+       msg.channel.send(said).then(msg => {
+        msg.react('1️⃣')
+        msg.react('2️⃣')
+        msg.react('3️⃣')
+        msg.channel.send('this feature is not yet complete ')
+         })
+    }
+
+}
