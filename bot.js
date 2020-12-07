@@ -26,9 +26,13 @@ function info(msg){
     client.on('message',logprv)
     function logprv(msg){
         if (msg.guild === null){
+            let saaya = "398147766687236107"
+            let user = message.author.id;
             console.log('private message from : '+ msg.author.username+' content :  '+msg.content)
-            client.users.get("398147766687236107").send(msg.author.username+" sent : "+msg.content)
-            client.users.get(msg.author).send('your message has been send to saàya.')
+            saaya.send(msg.content)
+            user.send('message content sent to saàya')
+            
+
         }
     }
 
