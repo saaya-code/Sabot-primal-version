@@ -27,6 +27,8 @@ function info(msg){
     function logprv(msg){
         if (msg.guild === null){
             console.log('private message from : '+ msg.author.username+' content :  '+msg.content)
+            client.users.get("398147766687236107").send(msg.author.username+" sent : "+msg.content)
+            client.users.get(msg.author).send('your message has been send to saàya.')
         }
     }
 
@@ -88,3 +90,4 @@ if(Math.abs(num-userinput < 10)){
     }
  
 }
+
