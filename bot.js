@@ -101,6 +101,6 @@ function appeal(msg){
         msg.channel.send('this feature is not yet complete ')
          })
     }
-    client.user.setActivity("Master saàya");
+    client.user.setActivity("Serving Master saàya");
 
 }
