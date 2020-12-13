@@ -108,7 +108,7 @@ function appeal(msg){
        useridname = client.users.cache.find(user => user.id == senderid)
         console.log(useridname.username)
         user.send(contenu)
-        msg.reply('** sent : **"'+contenu+'" to : **'+ useridname.username)
+        msg.reply('** sent : **"'+contenu+'" to : **'+ useridname.username+"**")
    }
     }
 
