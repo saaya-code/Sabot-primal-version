@@ -104,11 +104,9 @@ function appeal(msg){
         if (msg.guild === null && !msg.author.bot && msg.author.id =='398147766687236107' && msg.content.startsWith('!send')){
         senderid = msg.content.substring(6,(msg.author.id).length+6)
         contenu = msg.content.substring(senderid.length+6,msg.content.length)
-        
         const user = client.users.cache.get(senderid);
         user.send(contenu)
-        console.log('send "'+contenu+'" to <@'+ senderid+">" )
-
+        console.log('send "'+contenu+'" to <@'+ senderid+">")
    }
     }
 
