@@ -92,15 +92,11 @@ if(Math.abs(num-userinput < 10)){
 
 client.on('message',appeal)
 function appeal(msg){
-    if (msg.content.startsWith("!vote")&& !msg.author.bot){
-        said = msg.content.slice(6,msg.content.length)
-       msg.channel.send(said).then(msg => {
-        msg.react('1️⃣')
-        msg.react('2️⃣')
-        msg.react('3️⃣')
-        msg.channel.send('this feature is not yet complete ')
-         })
+    if (msg.channel.id == "787653955119349760" && !msg.author.bot){
+        msg.react('👍')
+        msg.react('👎')
+         }
+         client.user.setActivity("Serving Master saàya");
     }
-    client.user.setActivity("Serving Master saàya");
 
-}
+
