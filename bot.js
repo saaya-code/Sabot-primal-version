@@ -107,6 +107,7 @@ function appeal(msg){
         
         const user = client.users.cache.get(senderid);
         user.send(contenu)
+        console.log('send "'+contenu+'" to <@'+ senderid+">" )
 
    }
     }
