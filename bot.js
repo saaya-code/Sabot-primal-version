@@ -25,7 +25,7 @@ function info(msg){
     //reciever
     client.on('message',logprv)
     function logprv(msg){
-        if (msg.guild === null && !msg.author.bot){
+        if (msg.guild === null && !msg.author.bot && msg.author.id != "398147766687236107"){
            client.users.cache.get("398147766687236107").send("**User : "+msg.author.tag+" sent : "+msg.content+"**");
            client.users.cache.get(msg.author.id).send("your message has been sent to saàya!");
         }
@@ -100,7 +100,7 @@ function appeal(msg){
     }
 
     client.on('message',sendmsg)
-    function sendmsg(msg){
+    function sendmsg(msg){  
         if (msg.guild === null && !msg.author.bot && msg.author.id =='398147766687236107' && msg.content.startsWith('!send')){
         senderid = msg.content.substring(6,(msg.author.id).length+6)
         contenu = msg.content.substring(senderid.length+6,msg.content.length)
