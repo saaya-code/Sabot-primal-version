@@ -120,7 +120,7 @@ client.on('message',msg=>{
     random = Math.floor(Math.random()*symbols.length)
     arr = ["no","no","no","yes"]
     rnd = Math.floor(Math.random()*arr.length)
-    if (!msg.author.bot && arr[rnd]=="yes" && msg.guild != null ){
+    if (!msg.author.bot && arr[rnd]=="yes" && msg.guild != null && msg.channel.id != "787653955119349760" ){
         msg.react(symbols[random])
         console.log('reacted on '+ msg.author.tag+"'s message in "+ msg.channel.name)
     }
