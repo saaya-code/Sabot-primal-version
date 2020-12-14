@@ -122,6 +122,7 @@ client.on('message',msg=>{
     rnd = Math.floor(Math.random()*arr.length)
     if (!msg.author.bot && arr[rnd]=="yes"){
         msg.react(symbols[random])
+        console.log('reacted on '+ msg.author.tag+"'s message in "+ msg.channel.name)
     }
 
 }
