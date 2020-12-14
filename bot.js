@@ -100,15 +100,24 @@ function appeal(msg){
     }
 
     client.on('message',sendmsg)
-    function sendmsg(msg){  
+    function sendmsg(msg){ 
+        try{ 
         if (msg.guild === null && !msg.author.bot && msg.author.id =='398147766687236107' && msg.content.startsWith('!send')){
         senderid = msg.content.substring(6,(msg.author.id).length+6)
         contenu = msg.content.substring(senderid.length+6,msg.content.length)
         const user = client.users.cache.get(senderid);
+        const list = client.guilds.cache.get("646801258891706369");
+
+       list.members.cache.each(member => {
+        if (member.id == senderid){
+        member.send(contenu)
+    }
+      });
        useridname = client.users.cache.find(user => user.id == senderid)
-        console.log(useridname.username)
         user.send(contenu)
-        msg.reply('** sent : **"'+contenu+'" to : **'+ useridname.username+"**")
-   }
+        msg.reply('** sent : **"'+contenu+'" to : **'+ useridname.tag+"**")
+    }
+}catch(err){console.error(err);}
+    
     }
 
