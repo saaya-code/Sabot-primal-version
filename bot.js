@@ -106,13 +106,6 @@ function appeal(msg){
         senderid = msg.content.substring(6,(msg.author.id).length+6)
         contenu = msg.content.substring(senderid.length+6,msg.content.length)
         const user = client.users.cache.get(senderid);
-        const list = client.guilds.cache.get("646801258891706369");
-
-       list.members.cache.each(member => {
-        if (member.id == senderid){
-        member.send(contenu)
-    }
-      });
        useridname = client.users.cache.find(user => user.id == senderid)
         user.send(contenu)
         msg.reply('** sent : **"'+contenu+'" to : **'+ useridname.tag+"**")
