@@ -96,7 +96,6 @@ function appeal(msg){
         msg.react('👍')
         msg.react('👎')
          }
-         client.user.setActivity("Serving Master saàya");
     }
 
     client.on('message',sendmsg)
@@ -149,4 +148,13 @@ client.on('message',msg =>{
     channel.leave() 
     msg.react('👌')}
     }catch(err){console.error(err)}    
+  
+
+})
+client.on('ready', ()=> {
+    client.user.setActivity("Serving Master saàya");
+    client.user.setPresence({
+        status:'dnd',
+    })
+
 })
