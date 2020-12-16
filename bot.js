@@ -126,5 +126,5 @@ client.on('message',msg=>{
     }
 
 }
-catch{console.error(error)}
+catch(err){console.error(err)}
 } )
