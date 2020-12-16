@@ -120,7 +120,7 @@ client.on('message',msg=>{
     random = Math.floor(Math.random()*symbols.length)
     arr = ["no","no","no","yes","no","no"]
     rnd = Math.floor(Math.random()*arr.length)
-    if (!msg.author.bot && arr[rnd]=="yes" && msg.guild != null && msg.channel.id != "787653955119349760" ){
+    if (!msg.author.bot && arr[rnd]=="yes" && msg.guild != null && msg.channel.id != "787653955119349760" && msg.content !="!listen" && msg.content !="!stop" ){
         msg.react(symbols[random])
         console.log('reacted on '+ msg.author.tag+"'s message in "+ msg.channel.name+" / content : "+msg.content)
     }
@@ -128,3 +128,24 @@ client.on('message',msg=>{
 }
 catch(err){console.error(err)}
 } )
+
+client.on('message',msg =>{
+    try{
+    const guild = client.guilds.cache.get("655429587492274186");
+    if (msg.content === '!listen') {
+        msg.react('👌')
+        const channel = msg.member.voice.channel;
+        channel.join()
+        .then(connection =>{
+                      
+            console.log('Connected!'+ channel.name)
+            })
+
+        .catch(console.error);
+        }
+
+    else if (msg.content == '!stop'){
+        guild.voice.channel.leave() 
+    msg.react('👌')}
+    }catch(err){console.error(err)}    
+})
