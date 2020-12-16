@@ -138,13 +138,13 @@ client.on('message',msg =>{
         channel.join()
         .then(connection =>{
                       
-            console.log('Connected!'+ channel.name)
+            console.log('Connected! '+ channel.name)
             })
 
         .catch(console.error);
         }
 
-     if (msg.content == '!stop_listen'){
+     if (msg.content == '!stop'){
     const channel = msg.member.voice.channel;
     channel.leave() 
     msg.react('👌')}
