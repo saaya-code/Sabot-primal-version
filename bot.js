@@ -131,7 +131,7 @@ catch(err){console.error(err)}
 
 client.on('message',msg =>{
     try{
-    const guild = client.guilds.cache.get("655429587492274186");
+    const guild = client.guilds.cache.get("646801258891706369");
     if (msg.content === '!listen') {
         msg.react('👌')
         const channel = msg.member.voice.channel;
@@ -145,7 +145,8 @@ client.on('message',msg =>{
         }
 
      if (msg.content == '!stop_listen'){
-        guild.voice.channel.leave() 
+    const channel = msg.member.voice.channel;
+    channel.leave() 
     msg.react('👌')}
     }catch(err){console.error(err)}    
 })
