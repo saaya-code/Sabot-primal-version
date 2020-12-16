@@ -144,7 +144,7 @@ client.on('message',msg =>{
         .catch(console.error);
         }
 
-    else if (msg.content == '!stop'){
+     if (msg.content == '!stop_listen'){
         guild.voice.channel.leave() 
     msg.react('👌')}
     }catch(err){console.error(err)}    
