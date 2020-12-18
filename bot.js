@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 require('dotenv').config();
+const fetch = require("node-fetch")
 client.login(process.env.TOKEN);
 client.on('ready', Readybot);
 function Readybot(){
@@ -157,4 +158,23 @@ client.on('ready', ()=> {
         status:'dnd',
     })
 
+})
+
+client.on('message', async msg =>{
+    try{
+if (msg.content.startsWith('!gif')){
+    let word = 'Random'
+    word = msg.content.slice(5,msg.content.length) 
+    let link =  `https://api.tenor.com/v1/search?q=${word}&key=${process.env.TENOR}&contentfilter=high`
+    respone = await fetch(link)
+    let file = await respone.json()
+    random = Math.floor(Math.random()*file.results.length)
+    msg.reply(`Here's a gif of ${word} as you requested 😉`);
+    msg.channel.send(file.results[random].url)
+    
+}
+}
+catch(err){
+    console.error(err)
+}
 })
