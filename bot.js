@@ -173,8 +173,20 @@ if (msg.content.startsWith('!gif')){
     msg.channel.send(file.results[random].url)
     
 }
+if (msg.content == '!joke'){
+    let link = `https://official-joke-api.appspot.com/random_joke`
+response = await fetch(link)
+json = await response.json()
+msg.reply(json.setup)
+setTimeout(() => {
+msg.channel.send(json.punchline)
+console.log(json)
+}, 5000);
+
+   }
 }
 catch(err){
     console.error(err)
 }
 })
+
