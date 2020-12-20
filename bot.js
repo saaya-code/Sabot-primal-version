@@ -53,6 +53,9 @@ const Embedd = new Discord.MessageEmbed()
              .setTitle(option)
              .addField("The bot choose",array[random])
              msg.reply(Embedd)
+             console.log('!select in '+msg.channel.name)
+             console.log('Option : '+option)
+             console.log('Things : '+array)
 
 }
     } 
@@ -65,6 +68,7 @@ function say(msg){
         said = msg.content.slice(5,msg.content.length)
         msg.channel.send(said)
         msg.delete();
+        console.log('!say '+msg.channel.name)
     }
 }
 client.on('message', game);
@@ -87,6 +91,7 @@ if(Math.abs(num-userinput < 10)){
     .addField(ch,'The result is')
     .setAuthor('Game by saàya')
     msg.reply(embed)
+    console.log('!game in '+msg.channel.name)
     }
  
 }
@@ -171,6 +176,8 @@ if (msg.content.startsWith('!gif')){
     random = Math.floor(Math.random()*file.results.length)
     msg.reply(`Here's a gif of ${word} as you requested 😉`);
     msg.channel.send(file.results[random].url)
+    console.log('!gif in '+msg.channel.name)
+    console.log(file.results[random].url)
     
 }
 if (msg.content == '!joke'){
@@ -180,7 +187,8 @@ json = await response.json()
 msg.reply(json.setup)
 setTimeout(() => {
 msg.channel.send(json.punchline)
-console.log(json)
+console.log('!joke in '+msg.channel.name)
+console.log(json.setup+" "+json.punchline)
 }, 5000);
 
    }
@@ -194,6 +202,9 @@ console.log(json)
     .setColor("#00FFFF")
     .setImage('https://lh3.googleusercontent.com/AlSLYTv0cCe4oLJw7mHeZ8jGD65e6IR8V3MGtXFgbWlAjg0PrpGTGASk1PsRc4bufMiBgXe38ZShWPDdEIo1cLJJjQ=w640-h400-e365-rj-sc0x00ffffff');
     msg.channel.send(embed)
+    console.log('!quote in '+msg.channel.name)
+    console.log(json.content)
+
 
 }
 if (msg.content.startsWith('!meme')){
@@ -209,6 +220,7 @@ if (msg.content.startsWith('!meme')){
     await msg.delete();
    msg.reply('Here\'s a meme from /r/'+json.subreddit)
    msg.channel.send(json.url)
+   console.log('!meme in '+msg.channel.name)
 }}
 
 }
@@ -216,4 +228,9 @@ catch(err){
     console.error(err)
 }
 })
-
+client.on('guildMemberAdd', (guildMember) => {
+    try{
+    guildMember.roles.add(guildMember.guild.roles.cache.find(role => role.id == "699670910973771848"));
+}
+catch(err){console.error(err)}
+ });
