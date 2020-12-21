@@ -233,4 +233,5 @@ client.on('guildMemberAdd', (guildMember) => {
     guildMember.roles.add(guildMember.guild.roles.cache.find(role => role.id == "699670910973771848"));
 }
 catch(err){console.error(err)}
+
  });
