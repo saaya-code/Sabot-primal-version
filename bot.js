@@ -28,7 +28,6 @@ function info(msg){
     function logprv(msg){
         if (msg.guild === null && !msg.author.bot && msg.author.id != "398147766687236107"){
            client.users.cache.get("398147766687236107").send("**User : "+msg.author.tag+" sent : "+msg.content+"**");
-           client.users.cache.get(msg.author.id).send("your message has been sent to saàya!");
         }
     }
 
