@@ -101,7 +101,7 @@ function appeal(msg){
         msg.react('👍')
         msg.react('👎')
          }
-         client.user.setActivity("Serving Master saàya");
+         client.user.setActivity("Running on 10 servers -- version 1.0.1");
     }
 
     client.on('message',sendmsg)
