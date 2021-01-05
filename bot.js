@@ -135,27 +135,31 @@ catch(err){console.error(err)}
 
 client.on('message',msg =>{
     try{
-    const guild = client.guilds.cache.get("646801258891706369");
-    if (msg.content === '!listen') {
-        msg.react('👌')
-        const channel = msg.member.voice.channel;
-        channel.join()
-        .then(connection =>{
-                      
-            console.log('Connected! '+ channel.name)
-            })
+         
+             
+         
+       var dude=[];
+    arr = ["belehy ridh ","ti fok 3ad","mala amghat fi hal serveur","blhy la3ad tagini","farah bhima"]
+    random = Math.floor(Math.random()*arr.length);
+  
+    if(msg.mentions.has(client.user)){
+        msg.reply(arr[random])
+        dude.push(msg.author.id)
+        console.log(dude.includes(msg.author.id))
+       for(i=0;i<arr.length;i++){
+           msg.author.send(arr[i])
 
-        .catch(console.error);
+      
+
         }
 
-     if (msg.content == '!stop'){
-    const channel = msg.member.voice.channel;
-    channel.leave() 
-    msg.react('👌')}
-    }catch(err){console.error(err)}    
+    }
   
 
+   
+} catch(err){console.error(err)}
 })
+
 client.on('ready', ()=> {
     client.user.setPresence({
         status:'dnd',
@@ -232,4 +236,3 @@ client.on('guildMemberAdd', (guildMember) => {
 }
 catch(err){console.error(err)}
 });
-
