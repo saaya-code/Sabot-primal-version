@@ -146,14 +146,7 @@ client.on('message',msg =>{
         msg.reply(arr[random])
         dude.push(msg.author.id)
         console.log(dude.includes(msg.author.id))
-       for(i=0;i<arr.length;i++){
-           msg.author.send("tridh wala lee ? ")
-
-
       
-
-        }
-
     }
   
 
