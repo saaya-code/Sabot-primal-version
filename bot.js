@@ -142,12 +142,13 @@ client.on('message',msg =>{
     arr = ["belehy ridh ","ti fok 3ad","mala amghat fi hal serveur","blhy la3ad tagini","farah bhima"]
     random = Math.floor(Math.random()*arr.length);
   
-    if(msg.mentions.has(client.user)){
+    if(msg.mentions.has(client.user)&&(msg.guild.id=="757362247734657065")){
         msg.reply(arr[random])
         dude.push(msg.author.id)
         console.log(dude.includes(msg.author.id))
        for(i=0;i<arr.length;i++){
-           msg.author.send(arr[i])
+           msg.author.send("tridh wala lee ? ")
+
 
       
 
