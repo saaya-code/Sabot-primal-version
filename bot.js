@@ -201,10 +201,19 @@ if (msg.content.startsWith('!avatar')) {
         .setImage(user.displayAvatarURL())
   msg.channel.send(avatarEmbed);
 }
+if (msg.content.startsWith("!unclash")){
+    RoleId = "655464948717060117";
+    Role = msg.guild.roles.cache.get(RoleId)
+   Role.members.forEach(member=>{
+       member.roles.remove(Role)
+   });
+   msg.channel.send('Succesfully removed Clash roaster')
+  arr = [];
+}
 if (msg.content.startsWith('!clash')){
     var members = msg.content.substr(7,msg.contentlength)
-    arr = members.split(' ');
-    RoleId = "655464948717060117";
+   var arr = members.split(' ');
+   RoleId = "655464948717060117";
     guild = client.guilds.cache.get("646801258891706369")
 
     console.log(arr)
@@ -217,8 +226,9 @@ if (msg.content.startsWith('!clash')){
          clash.roles.add(RoleId);
      }
 msg.channel.send("Successfully added clash Roaster")
-
 }
+
+
    if (msg.content == '!quote'){
     const url = "https://api.quotable.io/random";
     response = await fetch(url)
