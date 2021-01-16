@@ -194,14 +194,14 @@ if (msg.content == '!icon'){
 }
 if (msg.content.startsWith('!avatar')) {
     const user = msg.mentions.users.first() || msg.author;
-    color = msg.member.displayHexColor;
+    var color = msg.member.displayHexColor;
     const avatarEmbed = new Discord.MessageEmbed()
         .setColor(color)
         .setAuthor(user.username)
         .setImage(user.displayAvatarURL())
   msg.channel.send(avatarEmbed);
 }
-if (msg.content.startsWith("!unclash")){
+if (msg.content.startsWith("!unclash") && msg.author.id == "398147766687236107"){
     RoleId = "655464948717060117";
     Role = msg.guild.roles.cache.get(RoleId)
    Role.members.forEach(member=>{
@@ -210,22 +210,37 @@ if (msg.content.startsWith("!unclash")){
    msg.channel.send('Succesfully removed Clash roaster')
   arr = [];
 }
-if (msg.content.startsWith('!clash')){
+if (msg.content.startsWith('!clash') && msg.author.id == "398147766687236107"){
     var members = msg.content.substr(7,msg.contentlength)
    var arr = members.split(' ');
+   clasharr=[];
    RoleId = "655464948717060117";
-    guild = client.guilds.cache.get("646801258891706369")
-
+guild = client.guilds.cache.get("646801258891706369")
     console.log(arr)
     for (i=0;i<arr.length;i++){
-        arr[i] = arr[i].substring(3,arr[i].length-1)   
+        arr[i] = arr[i].substring(3,arr[i].length-1) 
+        clash = guild.members.cache.get(arr[i])
+        clasharr.push(clash);
+        clash.roles.add(RoleId);  
      }
+ 
 
-     for (j=0;j<arr.length;j++){
-         clash = guild.members.cache.get(arr[j])
-         clash.roles.add(RoleId);
-     }
 msg.channel.send("Successfully added clash Roaster")
+}
+if (msg.content == '!roaster' ){
+    var color = msg.member.displayHexColor;
+    i=1;
+    RoleId = "655464948717060117";
+    Role = msg.guild.roles.cache.get(RoleId)
+    const min = new Discord.MessageEmbed()
+    .setTitle('Clash Roaster')
+     .setColor(color)
+    Role.members.forEach((member)=>{
+    
+    min.addField(`Player ${i}` ,member)
+    i++;
+    })
+    msg.channel.send(min);
 }
 
 
@@ -262,12 +277,13 @@ if (msg.content.startsWith('!meme')){
 
 }
 catch(err){
-    console.error(err)
+    msg.react('❌')
 }
 })
 client.on('guildMemberAdd', (guildMember) => {
     try{
     guildMember.roles.add(guildMember.guild.roles.cache.find(role => role.id == "699670910973771848"));
 }
-catch(err){console.error(err)}
+catch(err){    msg.react('❌')
+}
 });
