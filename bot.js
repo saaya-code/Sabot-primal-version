@@ -188,6 +188,10 @@ console.log(json.setup+" "+json.punchline)
 }, 5000);
 
    }
+if (msg.content == '!icon'){
+    guild = msg.guild;
+    msg.reply(guild.iconURL());
+}
    if (msg.content == '!quote'){
     const url = "https://api.quotable.io/random";
     response = await fetch(url)
