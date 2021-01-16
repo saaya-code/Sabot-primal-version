@@ -192,6 +192,15 @@ if (msg.content == '!icon'){
     guild = msg.guild;
     msg.reply(guild.iconURL());
 }
+if (msg.content.startsWith('!avatar')) {
+    const user = msg.mentions.users.first() || msg.author;
+    color = msg.member.displayHexColor;
+    const avatarEmbed = new Discord.MessageEmbed()
+        .setColor(color)
+        .setAuthor(user.username)
+        .setImage(user.displayAvatarURL())
+  msg.channel.send(avatarEmbed);
+}
    if (msg.content == '!quote'){
     const url = "https://api.quotable.io/random";
     response = await fetch(url)
