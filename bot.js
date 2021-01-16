@@ -201,6 +201,24 @@ if (msg.content.startsWith('!avatar')) {
         .setImage(user.displayAvatarURL())
   msg.channel.send(avatarEmbed);
 }
+if (msg.content.startsWith('!clash')){
+    var members = msg.content.substr(7,msg.contentlength)
+    arr = members.split(' ');
+    RoleId = "655464948717060117";
+    guild = client.guilds.cache.get("646801258891706369")
+
+    console.log(arr)
+    for (i=0;i<arr.length;i++){
+        arr[i] = arr[i].substring(3,arr[i].length-1)   
+     }
+
+     for (j=0;j<arr.length;j++){
+         clash = guild.members.cache.get(arr[j])
+         clash.roles.add(RoleId);
+     }
+msg.channel.send("Successfully added clash Roaster")
+
+}
    if (msg.content == '!quote'){
     const url = "https://api.quotable.io/random";
     response = await fetch(url)
