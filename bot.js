@@ -215,6 +215,7 @@ if (msg.content.startsWith('!clash') && msg.author.id == "398147766687236107"){
    var arr = members.split(' ');
    clasharr=[];
    RoleId = "655464948717060117";
+   Role = msg.guild.roles.cache.get(RoleId)
 guild = client.guilds.cache.get("646801258891706369")
     console.log(arr)
     for (i=0;i<arr.length;i++){
@@ -223,7 +224,13 @@ guild = client.guilds.cache.get("646801258891706369")
         clasharr.push(clash);
         clash.roles.add(RoleId);  
      }
- 
+     setInterval(function(){
+        var date = new Date(); 
+        if(date.getHours() === 19 && date.getMinutes() === 0){
+           Role.members.forEach(mbr=>mbr.send('Clash Reminder'))
+        client.channels.cache.get("800366666663854100").send(`<@&${RoleId}> It's 7pm Time for clash !`)           
+        }
+    }, 60000);
 
 msg.channel.send("Successfully added clash Roaster")
 }
@@ -278,6 +285,7 @@ if (msg.content.startsWith('!meme')){
 }
 catch(err){
     msg.react('❌')
+    console.error(err)
 }
 })
 client.on('guildMemberAdd', (guildMember) => {
@@ -285,5 +293,6 @@ client.on('guildMemberAdd', (guildMember) => {
     guildMember.roles.add(guildMember.guild.roles.cache.find(role => role.id == "699670910973771848"));
 }
 catch(err){    msg.react('❌')
+console.error(err)
 }
 });
