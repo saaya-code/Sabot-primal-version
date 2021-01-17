@@ -226,9 +226,9 @@ guild = client.guilds.cache.get("646801258891706369")
      }
      setInterval(function(){
         var date = new Date(); 
-        if(date.getHours() === 18 && date.getMinutes() === 45){
+        if(date.getHours() === 18 && date.getMinutes() === 50){
            Role.members.forEach(mbr=>mbr.send('Clash Reminder'))
-        client.channels.cache.get("800366666663854100").send(`<@&${RoleId}> It's 7pm Time for clash !`)           
+        client.channels.cache.get("800366666663854100").send(`<@&${RoleId}> It's ${date.getHours()}:${date.getMinutes()} which means it's time to c-clash!`)           
         }
     }, 60000);
 
