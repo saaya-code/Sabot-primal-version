@@ -33,8 +33,7 @@ client.on('message',msg=>{
         msg.react('❌')
 
    }
-}catch(err){console.error(err)
-msg.react('❌')}
+}catch(err){console.error(err)}
 }) 
 
 
