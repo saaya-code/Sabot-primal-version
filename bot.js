@@ -16,7 +16,7 @@ function info(msg){
     const infoEmbed = new Discord.MessageEmbed()
     .setColor(randomColor)
     .setTitle('User info')
-    .setAuthor('saàya hh')
+    .setAuthor('saàya')
     .addField('user Id : ', msg.author.id)
     .addField('user name : ', msg.author.username)
         msg.reply(infoEmbed)
@@ -134,15 +134,13 @@ catch(err){console.error(err)}
 } )
 
 client.on('message',msg =>{
-    try{
-         
-             
-         
+    try{        
+         console.log(msg.content)
        var dude=[];
     arr = ["belehy ridh ","ti fok 3ad","mala amghat fi hal serveur","blhy la3ad tagini","farah bhima"]
     random = Math.floor(Math.random()*arr.length);
   
-    if(msg.mentions.has(client.user)&&(msg.guild.id=="757362247734657065")){
+    if(msg.mentions.has(client.user) && (msg.content != "@here" && msg.content != "@everyone" ) && msg.guild.id =="757362247734657065"){
         msg.reply(arr[random])
         dude.push(msg.author.id)
         console.log(dude.includes(msg.author.id))
@@ -177,7 +175,7 @@ if (msg.content.startsWith('!gif')){
     
 }
 if (msg.content == '!joke'){
-    let link = `https://official-joke-api.appspot.com/random_joke`
+let link = `https://official-joke-api.appspot.com/random_joke`
 response = await fetch(link)
 json = await response.json()
 msg.reply(json.setup)
