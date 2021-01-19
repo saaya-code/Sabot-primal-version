@@ -139,8 +139,8 @@ client.on('message',msg =>{
        var dude=[];
     arr = ["belehy ridh ","ti fok 3ad","mala amghat fi hal serveur","blhy la3ad tagini","farah bhima"]
     random = Math.floor(Math.random()*arr.length);
-  
-    if(msg.mentions.has(client.user) && (msg.content != "@here" && msg.content != "@everyone" ) && msg.guild.id =="757362247734657065"){
+  str = msg
+    if(msg.mentions.has(client.user) && (!msg.content.includes("@here") && !msg.content.includes("@everyone") ) && msg.guild.id =="757362247734657065"){
         msg.reply(arr[random])
         dude.push(msg.author.id)
         console.log(dude.includes(msg.author.id))
