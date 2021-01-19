@@ -7,23 +7,39 @@ client.on('ready', Readybot);
 function Readybot(){
     console.log('I\'m ready!!');
 }
-//info
-client.on('message', info);
-function info(msg){    
-    if (msg.content.startsWith('/info')){
+client.on('message',msg=>{
+    try{
+        arr2=[]
+        var role = msg.guild.roles.cache.find(role => role.id === "759106390517743696");
+        role.members.forEach(mbr=>{
+            arr2.push(mbr.id)
+        })
+        if (arr2.includes(msg.author.id) && (msg.content.startsWith("!spam"))){
+      arr = msg.content.split(" ")
+      console.log(arr)
+      userid = arr[1].substring(3,arr[1].length-1) 
+      console.log(userid)
+      user = client.users.cache.find(u=>u.id==userid)
+      msg.channel.send(`Spammed ${user} ${arr[2]} times requested by ${msg.author.tag}`)
+     for(let i=0;i<arr[2];i++){
+         user.send(arr[3])
+         console.log(msg.content)
 
-    var randomColor = Math.floor(Math.random()*16777215).toString(16);
-    const infoEmbed = new Discord.MessageEmbed()
-    .setColor(randomColor)
-    .setTitle('User info')
-    .setAuthor('saàya')
-    .addField('user Id : ', msg.author.id)
-    .addField('user name : ', msg.author.username)
-        msg.reply(infoEmbed)
+     } 
+     msg.delete()
+    }
+    else if(msg.content.startsWith("!spam") && !msg.member.roles.cache.find(r=> r.id =="657575771392704514")){
+        msg.reply("You don't have permission to use this command.")
+        msg.react('❌')
+
+   }
+}catch(err){console.error(err)
+msg.react('❌')}
+}) 
 
 
-    }}
-    //reciever
+
+
     client.on('message',logprv)
     function logprv(msg){
         if (msg.guild === null && !msg.author.bot && msg.author.id != "398147766687236107"){
@@ -114,6 +130,7 @@ function appeal(msg){
        useridname = client.users.cache.find(user => user.id == senderid)
         user.send(contenu)
         msg.reply('** sent : **"'+contenu+'" to : **'+ useridname.tag+"**")
+
     }
 }catch(err){console.error(err);}
     
@@ -135,12 +152,11 @@ catch(err){console.error(err)}
 
 client.on('message',msg =>{
     try{        
-         console.log(msg.content)
        var dude=[];
     arr = ["belehy ridh ","ti fok 3ad","mala amghat fi hal serveur","blhy la3ad tagini","farah bhima"]
     random = Math.floor(Math.random()*arr.length);
   str = msg
-    if(msg.mentions.has(client.user) && (!msg.content.includes("@here") && !msg.content.includes("@everyone") ) && msg.guild.id =="757362247734657065"){
+    if(msg.mentions.has(client.user) && (!msg.content.includes("@here") && !msg.content.includes("@everyone")) && msg.guild.id =="757362247734657065" &&! msg.author.bot){
         msg.reply(arr[random])
         dude.push(msg.author.id)
         console.log(dude.includes(msg.author.id))
