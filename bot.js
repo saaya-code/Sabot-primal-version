@@ -3,10 +3,10 @@ const client = new Discord.Client();
 require('dotenv').config();
 const fetch = require("node-fetch")
 client.login(process.env.TOKEN);
-client.on('ready', Readybot);
-function Readybot(){
-    console.log('I\'m ready!!');
-}
+client.on('ready',()=>{
+const Guilds = client.guilds.cache.map(guild => guild.id)
+    console.log(`Ready and running on ${Guilds.length} servers `)
+});
 client.on('message',msg=>{
     try{
         arr2=[]
@@ -169,7 +169,7 @@ client.on('message',msg =>{
 
 client.on('ready', ()=> {
     client.user.setPresence({
-        status:'dnd',
+        status:'online',
     })
 
 })
