@@ -3,14 +3,16 @@ const client = new Discord.Client();
 require('dotenv').config();
 const fetch = require("node-fetch")
 client.login(process.env.TOKEN);
+const cooldown = [];
 client.on('ready',()=>{
 const Guilds = client.guilds.cache.map(guild => guild.id)
     console.log(`Ready and running on ${Guilds.length} servers `)
 });
 client.on('message',msg=>{
     try{
+        guild = client.guilds.cache.get("757362247734657065")
         arr2=[]
-        var role = msg.guild.roles.cache.find(role => role.id === "759106390517743696");
+        var role = guild.roles.cache.find(role => role.id === "759106390517743696");
         role.members.forEach(mbr=>{
             arr2.push(mbr.id)
         })
@@ -205,6 +207,32 @@ if (msg.content == '!icon'){
     guild = msg.guild;
     msg.reply(guild.iconURL());
 }
+if (msg.channel.name =="send-messages-here" && cooldown.includes(msg.author.id) && !msg.author.bot){
+    msg.author.send('You are on cooldown slow down ')
+    msg.delete()
+}
+if (msg.channel.name =="send-messages-here" && !cooldown.includes(msg.author.id)&& !msg.author.bot){
+    if (!cooldown.includes(msg.author.id)){
+    cooldown.push(msg.author.id)
+}
+    str=msg.content
+    console.log(`user ${msg.author.username} confessed ${str}`)
+    ch1 = client.channels.cache.find(channel=>channel.name=="anonymous-messages")
+    msg.delete();
+const embed = new Discord.MessageEmbed()
+.setTitle('Anonymous message')
+.addField('Message content',str)
+.setFooter("❄️ Anonymous message sender")
+.setColor("#00FFFF");
+ch1.send(embed)
+setTimeout(()=>{
+cooldown.pop();
+    },10000)
+}
+
+
+
+
 if (msg.content.startsWith('!avatar')) {
     const user = msg.mentions.users.first() || msg.author;
     var color = msg.member.displayHexColor;
@@ -305,7 +333,7 @@ client.on('guildMemberAdd', (guildMember) => {
     try{
     guildMember.roles.add(guildMember.guild.roles.cache.find(role => role.id == "699670910973771848"));
 }
-catch(err){    msg.react('❌')
+catch(err){msg.react('❌')
 console.error(err)
 }
 });
