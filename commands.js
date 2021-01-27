@@ -8,8 +8,9 @@ const avatar = require("./commands/avatar")
 const roaster = require("./commands/roaster")
 const quote  = require("./commands/quote")
 const help = require("./commands/help")
+const invite = require("./commands/invite")
 const commands = {
- ping,select,gif,meme,say,joke,avatar,roaster,quote,help
+ ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite
 }
 module.exports = async function (msg) {
     let args = msg.content.split(" ")

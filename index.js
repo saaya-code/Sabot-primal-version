@@ -6,5 +6,8 @@ const commandHandler = require("./commands");
 client.on("message",commandHandler)  
 client.on('ready',()=>{
     const Guilds = client.guilds.cache.map(guild => guild.id)
-        console.log(`Ready and running on ${Guilds.length} servers `)
+    arr = client.guilds.cache.map(g=>g.name)
+    console.log(` Running on ${Guilds.length} Servers : ${arr.join(" / ")}`)
+    client.user.setActivity(`Running on ${Guilds.length} servers!`);
     });
+
