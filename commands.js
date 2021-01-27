@@ -7,13 +7,14 @@ const joke = require("./commands/joke")
 const avatar = require("./commands/avatar")
 const roaster = require("./commands/roaster")
 const quote  = require("./commands/quote")
+const help = require("./commands/help")
 const commands = {
- ping,select,gif,meme,say,joke,avatar,roaster,quote
+ ping,select,gif,meme,say,joke,avatar,roaster,quote,help
 }
 module.exports = async function (msg) {
     let args = msg.content.split(" ")
     let command = args.shift()
     if (command.charAt(0)=="!"){
-        command = command.substring(1)
+        command = command.substring(1).toLowerCase()
         commands[command](msg,args)
 }}
