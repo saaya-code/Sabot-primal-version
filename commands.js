@@ -13,9 +13,12 @@ const commands = {
  ping,select,gif,meme,say,joke,avatar,roaster,quote,help,invite
 }
 module.exports = async function (msg) {
+   try{
     let args = msg.content.split(" ")
     let command = args.shift()
     if (command.charAt(0)=="!"){
         command = command.substring(1).toLowerCase()
         commands[command](msg,args)
-}}
+}
+}catch(err){console.error(err)}
+}
